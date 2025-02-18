@@ -1,7 +1,8 @@
 # rarwe
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+
+I am coding an Ember JS application to catalog music. This program is based on the Rock and Roll with Ember tutorial as authored by Balint Erdi. 
 
 ## Prerequisites
 
