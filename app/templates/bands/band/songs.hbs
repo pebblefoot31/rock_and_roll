@@ -1,0 +1,14 @@
+{{#if @model.length}}
+  <ul>
+    {{#each @model as |song|}}
+      <li class='rr-songs-list-item'>
+        {{song.title}}
+        <span class='rr-song-rating'>{{song.rating}}</span>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p class='hint'>
+    The band has no songs yet.
+  </p>
+{{/if}}

@@ -1,7 +1,22 @@
-{{page-title "Rarwe"}}
+{{page-title 'Rock & Roll with Octane'}}
+<!-- The each expression allows us to loop over the collection
+    passed as the firsts argument and make each item accessible
+    in the block with the given 'as' keyword (hence we refer to
+    each attribute of a song with dot notation. -->
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<!-- The array helper creates an array out of the arguments passed. -->
 
-{{outlet}}
+<div class='rr-container'>
+  <div class='rr-page-header'>
+    <h1 class='rr-app-title'>
+      Rock & Roll
+      <small class='rr-subtitle'>
+        with Ember Octane
+      </small>
+    </h1>
+    <hr />
+  </div>
+  <div class='rr-main-content'>
+    {{outlet}}
+  </div>
+</div>

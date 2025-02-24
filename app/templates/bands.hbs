@@ -1,0 +1,20 @@
+{{page-title 'Bands'}}
+
+<div class='rr-bands'>
+  <ul class='rr-band-list'>
+    {{#each model as |band|}}
+      <li class='rr-list-item'>
+        <LinkTo
+          @route='bands.band.songs'
+          @model={{band.id}}
+          class='rr-band-link'
+        >
+          {{band.name}}
+        </LinkTo>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+<div>
+  {{outlet}}
+</div>

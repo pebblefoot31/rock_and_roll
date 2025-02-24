@@ -1,0 +1,63 @@
+body {
+  background-color: darkblue;
+}
+
+.rr-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.rr-app-title {
+  font: bold;
+  font-family: sans-serif;
+  color: rgb(197, 197, 197);
+  padding-left: 10px;
+}
+
+.rr-subtitle {
+  font: lighter;
+}
+
+hr {
+  color: white;
+  width: 98%;
+}
+
+.rr-navbar {
+  position: relative;
+  min-height: 10px;
+  border: 10px solid transparent;
+}
+
+.rr-nav-link {
+  font: normal;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: gainsboro;
+  padding: 8px;
+}
+
+/* BANDS PAGE */
+.rr-band-list {
+  list-style-type: none;
+}
+
+.rr-list-item {
+  margin-bottom: 10px;
+}
+
+.rr-band-link {
+  font: normal;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: gainsboro;
+  padding-bottom: 10px;
+}
+
+.hint {
+  text-align: center;
+  font: normal;
+  font-family: sans-serif;
+  color: gainsboro;
+}
