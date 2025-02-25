@@ -1,10 +1,6 @@
 {{page-title 'Rock & Roll with Octane'}}
-<!-- The each expression allows us to loop over the collection
-    passed as the firsts argument and make each item accessible
-    in the block with the given 'as' keyword (hence we refer to
-    each attribute of a song with dot notation. -->
 
-<!-- The array helper creates an array out of the arguments passed. -->
+{{! Formatting and styling for a simplistic title page. }}
 
 <div class='rr-container'>
   <div class='rr-page-header'>
@@ -18,5 +14,8 @@
   </div>
   <div class='rr-main-content'>
     {{outlet}}
+    {{! To properly display any and enable
+                  navigation to nested routes such as
+                  the /bands page. }}
   </div>
 </div>

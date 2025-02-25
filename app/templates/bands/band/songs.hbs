@@ -1,14 +1,30 @@
+{{! Specifying page title }}
+{{page-title 'Songs | Rock & Roll with Octane' replace=true}}
+
+{{! A simple example of how if-else blocks are structured in hbs}}
 {{#if @model.length}}
-  <ul>
+  {{! Indicates beginning of if-block }}
+
+  <ul class='rr-song-list'>
     {{#each @model as |song|}}
-      <li class='rr-songs-list-item'>
+      {{! Looping through our list of songs }}
+      <li class='rr-song-item'>
         {{song.title}}
         <span class='rr-song-rating'>{{song.rating}}</span>
       </li>
     {{/each}}
   </ul>
+
 {{else}}
-  <p class='hint'>
+  {{! Begin else code }}
+
+  <p class='rr-no-songs-message'>
     The band has no songs yet.
   </p>
+
 {{/if}}
+{{! Indicates end of if-block }}
+
+{{!-- Note: Handlebars has a nifty extension of the #each helper. It has an else branch whose contents gets rendered
+if the collection passed to it is falsey/empty: {{#each ...}}...{{else}}..{{/each}}. We
+didn't use that above but it is a handy tool! --}}
