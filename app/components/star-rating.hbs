@@ -1,0 +1,11 @@
+{{! this.stars is a property defined on the context of the template }}
+
+{{! the purpose of the component below is to render stars depending on the
+    rating of the song, which is passed in through songs.hbs. It also enables
+    updating the stars that are filled with the onUpdate keyword below. }}
+
+{{#each this.stars as |star|}}
+  <button type='button' {{on 'click' (fn @onUpdate star.rating)}}>
+    <FaIcon @icon='star' @prefix={{if star.full 'fas' 'far'}} />
+  </button>
+{{/each}}

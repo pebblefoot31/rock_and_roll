@@ -2,28 +2,65 @@
 {{page-title 'Songs | Rock & Roll with Octane' replace=true}}
 
 {{! A simple example of how if-else blocks are structured in hbs}}
+{{! Indicates beginning of if-block }}
 {{#if @model.length}}
-  {{! Indicates beginning of if-block }}
-
-  <ul class='rr-song-list'>
+  <ul class='w-full'>
     {{#each @model as |song|}}
       {{! Looping through our list of songs }}
-      <li class='rr-song-item'>
+      <li class='mb-2 w-full'>
         {{song.title}}
-        <span class='rr-song-rating'>{{song.rating}}</span>
+        <span class='float-right'>
+          {{! here is where we pass in the rating of the song to the StarRating component. }}
+          {{! component invocatio is StarRating and args are @rating and @onUpdate }}
+          <StarRating @rating={{song.rating}} @onUpdate={{set song 'rating'}} />
+        </span>
       </li>
     {{/each}}
   </ul>
 
 {{else}}
   {{! Begin else code }}
-
-  <p class='rr-no-songs-message'>
+  <p class='text-center'>
     The band has no songs yet.
   </p>
-
 {{/if}}
 {{! Indicates end of if-block }}
+{{#if this.showAddSong}}
+  <div class='flex justify-center mt-2'>
+    <button
+      type='button'
+      class='px-4 py-2 rounded bg-purple-600 shadow-md hover:shadow-lg hover:text-white hover:bg-purple-500 focus:outline-none'
+      {{on 'click' (set this 'showAddSong' false)}}
+    >
+      Add song
+    </button>
+  </div>
+{{else}}
+  <div class='mt-6 flex'>
+    <label for='title' class='sr-only'>Title</label>
+    <input
+      type='text'
+      id='title'
+      class='text-gray-800 bg-white rounded-md py-2 px-4'
+      placeholder='Title'
+      value={{this.title}}
+    />
+
+    <button
+      type='button'
+      class='ml-4 px-4 py-2 rounded bg-purple-600 shadow-md hover:shadow-lg hover:text-white'
+    >
+      Save
+    </button>
+
+    <button
+      type='button'
+      class='ml-2 px-4 p-2 rounded bg-white border border-bg-purple-600 shadow-md text-purple-600 hover:shadow-lg'
+    >
+      Cancel
+    </button>
+  </div>
+{{/if}}
 
 {{!-- Note: Handlebars has a nifty extension of the #each helper. It has an else branch whose contents gets rendered
 if the collection passed to it is falsey/empty: {{#each ...}}...{{else}}..{{/each}}. We

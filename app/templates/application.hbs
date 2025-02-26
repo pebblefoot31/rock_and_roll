@@ -13,10 +13,11 @@
       </a>
     </div>
   </div>
-  <div class='rr-main-content'>
-    {{outlet}}
-    {{! To properly display any and enable
+
+  {{! To properly display any and enable
                   navigation to nested routes such as
                   the /bands page. }}
+  <div class='flex flex-wrap -mx-2'>
+    {{outlet}}
   </div>
 </div>
