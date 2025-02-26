@@ -5,9 +5,15 @@ module.exports = function (defaults) {
     // Add options here
     postcssOptions: {
       compile: {
-        plugins: [{ module: require('tailwindcss') }],
+        plugins: [
+          require('tailwindcss')('./app/styles/tailwind/tailwind.config.js'), // Ensure Tailwind is here
+          require('autoprefixer'), // Ensure Autoprefixer is here
+        ],
       },
     },
+    /*compile: {
+        plugins: [{ module: require('tailwindcss') }],
+      },*/
   });
 
   // Use `app.import` to add additional libraries to the generated
