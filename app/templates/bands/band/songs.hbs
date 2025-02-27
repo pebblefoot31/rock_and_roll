@@ -1,11 +1,11 @@
 {{! Specifying page title }}
-{{page-title 'Songs | Rock & Roll with Octane' replace=true}}
+{{page-title @model.name ' songs | Rock & Roll with Octane' replace=true}}
 
 {{! A simple example of how if-else blocks are structured in hbs}}
 {{! Indicates beginning of if-block }}
-{{#if @model.length}}
+{{#if @model.songs.length}}
   <ul class='w-full'>
-    {{#each @model as |song|}}
+    {{#each @model.songs as |song|}}
       {{! Looping through our list of songs }}
       <li class='mb-2 w-full'>
         {{song.title}}
@@ -44,11 +44,13 @@
       class='text-gray-800 bg-white rounded-md py-2 px-4'
       placeholder='Title'
       value={{this.title}}
+      {{on 'input' this.updateTitle}}
     />
 
     <button
       type='button'
       class='ml-4 px-4 py-2 rounded bg-purple-600 shadow-md hover:shadow-lg hover:text-white'
+      {{on 'click' this.saveSong}}
     >
       Save
     </button>
@@ -56,6 +58,7 @@
     <button
       type='button'
       class='ml-2 px-4 p-2 rounded bg-white border border-bg-purple-600 shadow-md text-purple-600 hover:shadow-lg'
+      {{on 'click' this.cancel}}
     >
       Cancel
     </button>
