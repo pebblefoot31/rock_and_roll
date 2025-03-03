@@ -23,6 +23,7 @@ export default class CatalogService extends Service {
     return this.storage.songs;
   }
 
+  //supports a simple lookup feature in the catalog
   find(type, filterFn) {
     let collection = type === 'band' ? this.bands : this.songs;
     return collection.find(filterFn);
