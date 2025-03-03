@@ -12,7 +12,10 @@
         <span class='float-right'>
           {{! here is where we pass in the rating of the song to the StarRating component. }}
           {{! component invocatio is StarRating and args are @rating and @onUpdate }}
-          <StarRating @rating={{song.rating}} @onUpdate={{set song 'rating'}} />
+          <StarRating
+            @rating={{song.rating}}
+            @onUpdate={{fn this.updateRating song}}
+          />
         </span>
       </li>
     {{/each}}
