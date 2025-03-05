@@ -8,5 +8,11 @@ import Route from '@ember/routing/route';
 export default class BandsNewRoute extends Route {
   resetController(controller) {
     controller.name = '';
+
+    /*resetting this so that the user clicking 'ok' to
+     * leave one page does not persist, it ensures that they are
+     * warned each time.*/
+
+    controller.confirmedLeave = false;
   }
 }

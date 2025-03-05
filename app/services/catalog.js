@@ -61,16 +61,19 @@ export default class CatalogService extends Service {
   _loadResource(data) {
     let record;
     let { id, type, attributes, relationships } = data;
+
     if (type == 'bands') {
       let rels = extractRelationships(relationships);
       record = new Band({ id, ...attributes }, rels);
       this.add('band', record);
     }
+
     if (type == 'songs') {
       let rels = extractRelationships(relationships);
       record = new Song({ id, ...attributes }, rels);
       this.add('song', record);
     }
+
     return record;
   }
 
