@@ -6,11 +6,74 @@
 
 {{! A simple example of how if-else blocks are structured in hbs}}
 {{! Indicates beginning of if-block }}
-{{#if @model.songs.length}}
+
+<div class='mb-8 flex'>
+  {{#if this.sortedSongs.length}}
+    <span class='relative z-0 inline-flex shadow-sm'>
+      <LinkTo
+        class='rounded-l-md inline-flex items-center px-4 py-2 border border-purple-800 bg-purple-600 leading-5 font-medium text-gray-100 transition-all duration-500 delay-50 hover:text-white hover:bg-purple-800'
+        data-test-rr='sort by-title-asc'
+        @query={{hash s='title'}}
+      >
+        Title
+        <FaIcon class='ml-2' @icon='angle-up' @prefix='fas' />
+      </LinkTo>
+
+      <LinkTo
+        type='button'
+        class='-ml-px inline-flex items-center px-4 py-2 border border-purple-800 bg-purple-600 leading-5 font-medium text-gray-100 transition-all duration-500 delay-50 hover:text-white hover:bg-purple-800'
+        data-test-rr='sort-by-title-desc'
+        @query={{hash s='-title'}}
+      >
+        Title
+        <FaIcon class='ml-2' @icon='angle-down' @prefix='fas' />
+      </LinkTo>
+
+      <LinkTo
+        class='-ml-px inline-flex items-center px-4 py-2 border border-purple-800 bg-purple-600 leading-5 font-medium text-gray-100 transition-all duration-500 delay-50 hover:text-white hover:bg-purple-800'
+        type='button'
+        data-test-rr='sort-by-rating-asc'
+        @query={{hash s='rating'}}
+      >
+        Rating
+        <FaIcon class='ml-2' @icon='angle-up' @prefix='fas' />
+      </LinkTo>
+
+      <LinkTo
+        class='rounded-r-md -ml-px inline-flex items-center px-4 py-2 border border-purple-800 bg-purple-600 leading-5 font-medium text-gray-100 transition-all duration-500 delay-50 hover:text-white hover:bg-purple-800'
+        type='button'
+        data-test-rr='sort-by-rating-desc'
+        @query={{hash s='-rating'}}
+      >
+        Rating
+        <FaIcon class='ml-2' @icon='angle-down' @prefix='fas' />
+      </LinkTo>
+    </span>
+  {{/if}}
+
+  <div class='relative ml-auto rounded-md shadow-sm'>
+    <label for='search-box' class='sr-only'>Search</label>
+    <input
+      class='border rounded-md py-2 px-3 block w-full pr-10 text-gray-800 sm:text-sm sm:leading-5'
+      id='search-box'
+      data-test-rr='search-box'
+      value={{this.searchTerm}}
+      {{on 'input' this.updateSearchTerm}}
+    />
+    <div
+      class='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'
+    >
+      <FaIcon class='h-5 w-5 text-gray-400' @icon='search' @prefix='fas' />
+    </div>
+  </div>
+
+</div>
+
+{{#if this.sortedSongs.length}}
   <ul class='w-full'>
-    {{#each @model.songs as |song|}}
+    {{#each this.sortedSongs as |song|}}
       {{! Looping through our list of songs }}
-      <li class='mb-2 w-full'>
+      <li class='mb-2 w-full' data-test-rr='song-list-item'>
         {{song.title}}
         <span class='float-right'>
           {{! here is where we pass in the rating of the song to the StarRating component. }}
@@ -35,7 +98,7 @@
   <div class='flex justify-center mt-2'>
     <button
       type='button'
-      class='px-4 py-2 rounded bg-purple-600 shadow-md hover:shadow-lg hover:text-white hover:bg-purple-500 focus:outline-none'
+      class='px-4 py-2 rounded bg-purple-600 shadow-md hover:shadow-lg hover:text-white hover:bg-purple-800 focus:outline-none'
       {{on 'click' (set this 'showAddSong' false)}}
     >
       Add song

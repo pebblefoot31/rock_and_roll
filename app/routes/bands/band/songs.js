@@ -4,6 +4,16 @@ import { inject as service } from '@ember/service';
 export default class BandsBandSongsRoute extends Route {
   @service catalog;
 
+  queryParams = {
+    sortBy: {
+      as: 's',
+    },
+
+    searchTerm: {
+      as: 'q',
+    },
+  };
+
   /* Here we query the url to retrieve the songs from the backend.
    * We then go through each item in the data of the response, and create
    * a song instance from each.
