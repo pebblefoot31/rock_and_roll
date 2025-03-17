@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-
+import { capitalize } from 'rarwe/helpers/capitalize';
 /* Defining event handlers for actions to help us add a new song,
    save the song, or cancel the process. */
 
@@ -13,6 +13,11 @@ export default class BandsBandSongsController extends Controller {
   @tracked searchTerm = '';
 
   @service catalog;
+
+  get newSongPlaceholder() {
+    let bandName = this.model.name;
+    return `New ${capitalize([bandName])} song`;
+  }
 
   get matchingSongs() {
     let searchTerm = this.searchTerm.toLowerCase();

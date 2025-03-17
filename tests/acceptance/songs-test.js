@@ -19,7 +19,7 @@ module('Acceptance | songs', function (hooks) {
     this.server.create('song', { title: 'Elephants', rating: 4, band });
 
     this.server.create('song', {
-      title: 'Spinning in Daffodils',
+      title: 'Spinning In Daffodils',
       rating: 5,
       band,
     });
@@ -38,7 +38,7 @@ module('Acceptance | songs', function (hooks) {
     assert
       .dom('[data-test-rr=song-list-item]:last-child')
       .hasText(
-        'Spinning in Daffodils',
+        'Spinning In Daffodils',
         'The last song is the one that comes last in the alphabet'
       );
 
@@ -47,7 +47,7 @@ module('Acceptance | songs', function (hooks) {
     assert
       .dom('[data-test-rr=song-list-item]:first-child')
       .hasText(
-        'Spinning in Daffodils',
+        'Spinning In Daffodils',
         'The first song is the one that comes last in the alphabet'
       );
     assert
@@ -71,7 +71,7 @@ module('Acceptance | songs', function (hooks) {
       );
     assert
       .dom('[data-test-rr=song-list-item]:last-child')
-      .hasText('Spinning in Daffodils', 'The last song the highest rated.');
+      .hasText('Spinning In Daffodils', 'The last song the highest rated.');
     assert.ok(
       currentURL().includes('s=rating'),
       'The sort query parm appears in the URL with the correct value'
@@ -82,7 +82,7 @@ module('Acceptance | songs', function (hooks) {
     assert
       .dom('[data-test-rr=song-list-item]:first-child')
       .hasText(
-        'Spinning in Daffodils',
+        'Spinning In Daffodils',
         'The first song is the one that is highest rated'
       );
     assert
@@ -112,7 +112,7 @@ module('Acceptance | songs', function (hooks) {
     this.server.create('song', { title: 'Elephants', rating: 4, band });
 
     this.server.create('song', {
-      title: 'Spinning in Daffodils',
+      title: 'Spinning In Daffodils',
       rating: 5,
       band,
     });
